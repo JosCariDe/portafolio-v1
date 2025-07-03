@@ -1,0 +1,39 @@
+---
+
+// El bloque de código entre las tres rayas es donde escribimos JavaScript/TypeScript
+
+// Definimos las propiedades que este layout puede recibir.
+// En este caso, un 'title' para la pestaña del navegador.
+
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+// Se acaba la parte de JS y TS
+---
+
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Portafolio de Jose Narvaez" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body class="bg-white">
+		<!-- El <slot /> es donde Astro inyectará el contenido de la página que use este layout -->
+		<slot />
+	</body>
+</html>
+
+<style is:global>
+	/* Aquí podemos añadir estilos globales. 
+	   Por ejemplo, definir una fuente para todo el sitio. */
+	body {
+		font-family: sans-serif;
+	}
+</style>
