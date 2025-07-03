@@ -1,0 +1,31 @@
+---
+/*
+- `sticky top-0 z-50`: Esto hace la magia. `sticky` hace que el elemento se "pegue" en la parte superior (`top-0`) cuando haces scroll hacia abajo. `z-50` le da una capa de profundidad alta para que siempre esté por encima de otro contenido.
+
+- `backdrop-blur-sm`: Añade un efecto de desenfoque al fondo del header cuando hay contenido detrás, un toque muy moderno.
+
+- `flex justify-between items-center`: Un trío fundamental de Flexbox. `flex` activa el layout flexible, `justify-between` empuja los elementos hijos a los extremos (logo a la izquierda, resto a la derecha), y `items-center` los alinea verticalmente en el centro.
+
+- `max-w-6xl mx-auto`: Limita el ancho máximo del contenido a un tamaño razonable en pantallas grandes (`max-w-6xl`) y lo centra horizontalmente (`mx-auto`).
+
+- `hidden md:flex`: Esto es diseño responsivo. El menú de navegación (`Proyectos`, etc.) estará oculto (`hidden`) en pantallas pequeñas, pero se mostrará como un contenedor flex (`md:flex`) en pantallas medianas (`md:`) y superiores.
+
+*/
+---
+<header class="bg-white/90 backdrop-blur-sm sticky top-0 z-50">
+    <nav class="flex justify-between items-center max-w-6xl mx-auto px-6 py-4">
+        <a href="/" class="text-2xl font-bold text-gray-800">
+            JN 2025
+        </a>
+        <div class="hidden md:flex items-center space-x-6">
+            <a href="#proyectos" class="text-gray-600 hover:text-purple-700">Proyectos</a>
+            <a href="#experiencia" class="text-gray-600 hover:text-purple-700">Experiencia</a>
+            <a href="#contacto" class="text-gray-600 hover:text-purple-700">Contacto</a>
+        </div>
+        <div class="flex items-center space-x-4">
+            <!-- Por ahora usaremos texto, luego los cambiaremos por iconos reales -->
+            <a href="#" aria-label="GitHub" class="text-gray-600 hover:text-purple-700">GH</a>
+            <a href="#" aria-label="LinkedIn" class="text-gray-600 hover:text-purple-700">LI</a>
+        </div>
+    </nav>
+</header>
