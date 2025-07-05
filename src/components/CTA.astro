@@ -1,0 +1,79 @@
+---
+// src/components/CTA.astro
+import { Icon } from 'astro-icon/components';
+const email = "josenarvaezcariaga@hotmail.com"; 
+---
+<section id="contacto" class="py-20 sm:py-32">
+    <div class="max-w-4xl mx-auto px-6">
+        <div class="relative bg-gray-900 rounded-2xl shadow-2xl overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-purple-600/80 to-indigo-600/80 opacity-90"></div>
+            
+            <div class="relative text-center p-10 sm:p-16">
+                <div class="flex justify-center mb-4">
+                    <span class="inline-block p-4 bg-white/10 rounded-full">
+                        <Icon name="mdi:rocket-launch-outline" class="w-10 h-10 text-white" />
+                    </span>
+                </div>
+                
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                    ¿Listo para construir el futuro?
+                </h2>
+                
+                <p class="mt-4 max-w-2xl mx-auto text-lg text-purple-100">
+                    Busco activamente nuevas oportunidades para crecer y aportar valor. Estoy disponible para un **contrato de aprendizaje** o un **contrato laboral** donde pueda aplicar mi pasión por la tecnología y el desarrollo.
+                </p>
+                
+                <!-- SECCIÓN DE EMAIL MEJORADA -->
+                <div class="mt-8" id="contact-block">
+                    <p class="text-purple-200 mb-2">Contáctame directamente:</p>
+                    <div class="inline-flex items-center bg-black/20 border border-white/20 rounded-lg p-2 gap-4 backdrop-blur-sm">
+                        <span id="email-text" class="text-lg font-mono text-white pl-2">{email}</span>
+                        <button id="copy-button" title="Copiar email" class="flex items-center gap-2 bg-white text-purple-700 px-4 py-2 rounded-md font-semibold hover:bg-gray-200 transition-all duration-200">
+                            <Icon name="mdi:content-copy" class="w-5 h-5" />
+                            <span id="copy-text">Copiar</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- NUESTRA PRIMERA ASTRO ISLAND: SCRIPT PARA COPIAR -->
+<script>
+    function setupCopyButton() {
+        const contactBlock = document.getElementById('contact-block');
+        if (!contactBlock) return;
+
+        // AQUÍ ESTÁN LOS CAMBIOS: Usamos 'as' para decirle a TypeScript el tipo exacto.
+        const copyButton = contactBlock.querySelector('#copy-button') as HTMLButtonElement;
+        const emailText = contactBlock.querySelector('#email-text') as HTMLSpanElement;
+        const copyText = contactBlock.querySelector('#copy-text') as HTMLSpanElement;
+
+        // También es buena práctica comprobar que los elementos existen antes de usarlos.
+        if (!copyButton || !emailText || !copyText) {
+            console.error('No se encontraron los elementos para la funcionalidad de copiar.');
+            return;
+        }
+
+        copyButton.addEventListener('click', () => {
+            // Ahora TypeScript sabe que emailText tiene .innerText y no se queja.
+            navigator.clipboard.writeText(emailText.innerText).then(() => {
+                copyText.innerText = '¡Copiado!';
+                copyButton.classList.add('bg-green-500', 'text-white');
+                copyButton.classList.remove('bg-white', 'text-purple-700');
+
+                setTimeout(() => {
+                    copyText.innerText = 'Copiar';
+                    copyButton.classList.remove('bg-green-500', 'text-white');
+                    copyButton.classList.add('bg-white', 'text-purple-700');
+                }, 2000);
+            }).catch(err => {
+                console.error('Error al copiar el email: ', err);
+                copyText.innerText = 'Error';
+            });
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', setupCopyButton);
+</script>

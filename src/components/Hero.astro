@@ -1,39 +1,44 @@
 ---
-/*
-- `grid grid-cols-1 md:grid-cols-2`: Usamos CSS Grid. Por defecto, es una sola columna (`grid-cols-1`). En pantallas medianas y más grandes (`md:`), cambia a una grilla de dos columnas (`md:grid-cols-2`).
-
-- `font-extrabold`, `leading-tight`: Clases para controlar el grosor de la fuente y el espaciado entre líneas, dándole ese aspecto impactante a tu nombre.
-
-- `transition`: Añade una suave transición a las propiedades que cambian, como el color de fondo en el `:hover` de los botones.
-
-- __Para la imagen:__ He usado una URL de placeholder. Deberás subir tu imagen a un servicio como [Imgur](https://imgur.com/upload) y reemplazar la URL. El círculo morado de fondo es un `div` con posicionamiento `absolute`, desenfoque (`blur-3xl`) y opacidad para recrear el efecto de tu diseño.
-*/ 
-import JNPrueba from '../assets/img/JNPrueba.png';
+// src/components/Hero.astro (Versión Mejorada)
 ---
-<section class="max-w-6xl mx-auto px-6 py-20">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <!-- Columna de Texto -->
-        <div class="text-center md:text-left">
-            <p class="text-lg text-gray-600">Hello Everyone, I Am</p>
-            <h1 class="text-6xl md:text-8xl font-extrabold text-gray-900 leading-tight">
-                JOSE<br>NARVAEZ
-            </h1>
-            <p class="mt-4 text-xl font-medium bg-purple-100 text-purple-700 inline-block px-4 py-2 rounded-full">
-                Full stack Web and Mobile Developer
-            </p>
-            <div class="mt-8 flex justify-center md:justify-start space-x-4">
-                <a href="#contacto" class="bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700 transition">Contact Me</a>
-                <a href="/resume.pdf" class="bg-gray-200 text-gray-800 px-6 py-3 rounded-lg font-semibold hover:bg-gray-300 transition">Resume</a>
+<!-- 
+  1. Añadimos 'relative' para crear un contexto de apilamiento.
+  2. Añadimos 'overflow-hidden' para contener el efecto de fondo.
+-->
+<section class="relative overflow-hidden py-20 sm:py-15">
+
+    <!-- 
+      2. Este es nuestro círculo decorativo. Ahora es hijo directo de la sección.
+         Está posicionado de forma absoluta RELATIVO a la sección.
+         El z-0 lo envía al fondo.
+    -->
+    <div class="absolute top-1/2 right-0 w-1/2 h-full bg-purple-400/30 rounded-full -translate-y-1/2 translate-x-1/4 blur-3xl -z-0"></div>
+
+    <div class="relative max-w-6xl mx-auto px-6 z-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <!-- Columna de Texto (sin cambios) -->
+            <div class="text-center md:text-left">
+                <p class="text-lg text-gray-600">Hello Everyone, I Am</p>
+                <h1 class="text-6xl md:text-8xl font-extrabold text-gray-900 leading-tight">
+                    JOSE<br>NARVAEZ
+                </h1>
+                <p class="mt-4 text-xl capitalize font-medium bg-purple-100 text-purple-700 inline-block px-4 py-2 rounded-full">
+                    Systems engineer specialized in software development and data analysis.
+                </p>
+                <div class="mt-8 flex justify-center md:justify-start space-x-4">
+                    <a href="#contacto" class="bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700 transition">Contact Me</a>
+                    <a href="/resume.pdf" class="bg-gray-200 text-gray-800 px-6 py-3 rounded-lg font-semibold hover:bg-gray-300 transition">Resume</a>
+                </div>
             </div>
-        </div>
-        <!-- Columna de Imagen -->
-        <div class="relative flex justify-center">
-            <div class="absolute w-full h-full bg-purple-600 rounded-full -right-1/4 -bottom-1/4 transform scale-125 opacity-20 blur-3xl"></div>
-            <img 
-                src="/img/HeroImg.png"  
-                alt="Foto de Jose Narvaez" 
-                class="relative w-96 h-135  rounded-full z-10"
-            >
+
+            <!-- Columna de Imagen (simplificada) -->
+            <div class="flex justify-center">
+                <img 
+                    src="/public/img/HeroImg.png"  
+                    alt="Foto de Jose Narvaez" 
+                    class="w-96 h-125 object-cover "
+                >
+            </div>
         </div>
     </div>
 </section>
