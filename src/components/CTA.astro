@@ -1,0 +1,39 @@
+---
+// src/components/CTA.astro
+import { Icon } from 'astro-icon/components';
+const email = "tu.correo@ejemplo.com"; // <-- ¡IMPORTANTE! Reemplaza esto con tu email real.
+---
+<section id="contacto" class="py-20 sm:py-32">
+    <div class="max-w-4xl mx-auto px-6">
+        <div class="relative bg-gray-900 rounded-2xl shadow-2xl overflow-hidden">
+            <!-- Efecto de gradiente de fondo -->
+            <div class="absolute inset-0 bg-gradient-to-r from-purple-600/80 to-indigo-600/80 opacity-90"></div>
+            
+            <div class="relative text-center p-10 sm:p-16">
+                <div class="flex justify-center mb-4">
+                    <span class="inline-block p-4 bg-white/10 rounded-full">
+                        <Icon name="mdi:rocket-launch-outline" class="w-10 h-10 text-white" />
+                    </span>
+                </div>
+                
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                    ¿Listo para construir el futuro?
+                </h2>
+                
+                <p class="mt-4 max-w-2xl mx-auto text-lg text-purple-100">
+                    Busco activamente nuevas oportunidades para crecer y aportar valor. Estoy disponible para un **contrato de aprendizaje** o un **contrato laboral** donde pueda aplicar mi pasión por la tecnología y el desarrollo.
+                </p>
+                
+                <div class="mt-8">
+                    <a 
+                        href={`mailto:${email}`} 
+                        class="inline-flex items-center gap-3 text-lg font-bold bg-white text-purple-700 px-8 py-4 rounded-lg shadow-lg hover:bg-gray-100 hover:scale-105 transition-all duration-300"
+                    >
+                        <Icon name="mdi:email-outline" class="w-6 h-6" />
+                        <span>Hablemos</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
