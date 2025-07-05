@@ -1,0 +1,40 @@
+---
+// src/components/Expertise.astro
+import { Icon } from 'astro-icon/components';
+
+// Lista de tus habilidades. El 'name' debe coincidir con el nombre del icono
+// que encontraremos en Iconify (set: 'logos' o 'devicon').
+const technologies = [
+    { name: 'react', label: 'React' },
+    { name: 'kotlin-icon', label: 'Kotlin' },
+    { name: 'flutter', label: 'Flutter' },
+    { name: 'nestjs', label: 'NestJS' },
+    { name: 'spring-icon', label: 'Spring' },
+    { name: 'javascript', label: 'JavaScript' },
+    { name: 'html-5', label: 'HTML5' },
+    { name: 'css-3', label: 'CSS3' },
+    { name: 'java', label: 'Java' },
+    { name: 'tailwindcss-icon', label: 'Tailwind CSS' },
+    { name: 'astro', label: 'Astro' },
+    { name: 'microsoft-power-bi', label: 'Power BI' },
+];
+---
+<section id="experiencia" class="py-20 sm:py-32 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-6">
+        <div class="text-center">
+            <h2 class="text-4xl sm:text-5xl font-bold text-gray-900">Tecnologías y Habilidades</h2>
+            <p class="mt-4 text-lg text-gray-600">
+                Estas son algunas de las herramientas y tecnologías con las que disfruto trabajar y construir proyectos.
+            </p>
+        </div>
+
+        <div class="mt-16 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-8">
+            {technologies.map(tech => (
+                <div class="flex flex-col items-center justify-center gap-2 p-4 bg-white rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all">
+                    <Icon name={`logos:${tech.name}`} class="w-12 h-12" />
+                    <p class="text-sm font-medium text-gray-700">{tech.label}</p>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>
