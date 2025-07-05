@@ -1,0 +1,38 @@
+---
+// src/components/Projects.astro
+import ProjectCard from './ProjectCard.astro';
+
+const projects = [
+    {
+        title: 'Creacion de front en kotlin y Flutter',
+        description: 'Interfaces de usuario modernas y nativas para Android y multiplataforma.',
+        imageUrl: 'https://images.unsplash.com/photo-1555066931-4365d1469c9b?q=80&w=2070&auto=format&fit=crop',
+        link: '#'
+    },
+    {
+        title: 'Backend escalable y seguro en nest js',
+        description: 'APIs robustas y eficientes construidas con la arquitectura de NestJS.',
+        imageUrl: 'https://images.unsplash.com/photo-1522252234503-e356532cafd5?q=80&w=2070&auto=format&fit=crop',
+        link: '#'
+    },
+    {
+        title: 'Microservicios en Spring Boot',
+        description: 'Arquitectura de microservicios para aplicaciones empresariales complejas.',
+        imageUrl: 'https://images.unsplash.com/photo-1618477388954-7852f32655ec?q=80&w=1964&auto=format&fit=crop',
+        link: '#'
+    }
+];
+---
+<section id="proyectos" class="bg-gray-50 py-20 sm:py-32">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center">
+            <p class="text-purple-600 font-semibold">Portfolio 2025</p>
+            <h2 class="text-4xl sm:text-5xl font-bold mt-2 text-gray-900">Proyectos</h2>
+        </div>
+        <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            {projects.map(project => (
+                <ProjectCard {...project} />
+            ))}
+        </div>
+    </div>
+</section>
