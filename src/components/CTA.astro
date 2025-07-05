@@ -41,25 +41,28 @@ const email = "josenarvaezcariaga@hotmail.com";
 
 <!-- NUESTRA PRIMERA ASTRO ISLAND: SCRIPT PARA COPIAR -->
 <script>
-    // Esta función se asegura de que el código se ejecute solo si estamos en el bloque de contacto correcto.
     function setupCopyButton() {
         const contactBlock = document.getElementById('contact-block');
-        if (!contactBlock) return; // Si no encuentra el bloque, no hace nada.
+        if (!contactBlock) return;
 
-        const copyButton = contactBlock.querySelector('#copy-button');
-        const emailText = contactBlock.querySelector('#email-text');
-        const copyText = contactBlock.querySelector('#copy-text');
+        // AQUÍ ESTÁN LOS CAMBIOS: Usamos 'as' para decirle a TypeScript el tipo exacto.
+        const copyButton = contactBlock.querySelector('#copy-button') as HTMLButtonElement;
+        const emailText = contactBlock.querySelector('#email-text') as HTMLSpanElement;
+        const copyText = contactBlock.querySelector('#copy-text') as HTMLSpanElement;
 
-        if (!copyButton || !emailText || !copyText) return;
+        // También es buena práctica comprobar que los elementos existen antes de usarlos.
+        if (!copyButton || !emailText || !copyText) {
+            console.error('No se encontraron los elementos para la funcionalidad de copiar.');
+            return;
+        }
 
         copyButton.addEventListener('click', () => {
+            // Ahora TypeScript sabe que emailText tiene .innerText y no se queja.
             navigator.clipboard.writeText(emailText.innerText).then(() => {
-                // Éxito: Damos feedback visual
                 copyText.innerText = '¡Copiado!';
                 copyButton.classList.add('bg-green-500', 'text-white');
                 copyButton.classList.remove('bg-white', 'text-purple-700');
 
-                // Revertimos el estado después de 2 segundos
                 setTimeout(() => {
                     copyText.innerText = 'Copiar';
                     copyButton.classList.remove('bg-green-500', 'text-white');
@@ -72,6 +75,5 @@ const email = "josenarvaezcariaga@hotmail.com";
         });
     }
 
-    // Ejecutamos la función una vez que el DOM esté cargado.
     document.addEventListener('DOMContentLoaded', setupCopyButton);
 </script>
