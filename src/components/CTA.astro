@@ -23,12 +23,17 @@ const email = "josenarvaezcariaga@hotmail.com";
                     Busco activamente nuevas oportunidades para crecer y aportar valor. Estoy disponible para un **contrato de aprendizaje** o un **contrato laboral** donde pueda aplicar mi pasión por la tecnología y el desarrollo.
                 </p>
                 
-                <!-- SECCIÓN DE EMAIL MEJORADA -->
+                <!-- SECCIÓN DE EMAIL -->
                 <div class="mt-8" id="contact-block">
                     <p class="text-purple-200 mb-2">Contáctame directamente:</p>
-                    <div class="inline-flex items-center bg-black/20 border border-white/20 rounded-lg p-2 gap-4 backdrop-blur-sm">
-                        <span id="email-text" class="text-lg font-mono text-white pl-2">{email}</span>
-                        <button id="copy-button" title="Copiar email" class="flex items-center gap-2 bg-white text-purple-700 px-4 py-2 rounded-md font-semibold hover:bg-gray-200 transition-all duration-200">
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 bg-black/20 border border-white/20 rounded-lg p-3 sm:p-2 backdrop-blur-sm max-w-md mx-auto">
+
+                        <span id="email-text" class="text-lg font-mono text-white text-center sm:text-left word-break-all px-2">
+                            {email}
+                        </span>
+
+                        <button id="copy-button" title="Copiar email" class="w-full sm:w-auto flex-shrink-0 flex items-center justify-center gap-2 bg-white text-purple-700 px-4 py-2 rounded-md font-semibold hover:bg-gray-200 transition-all duration-200">
                             <Icon name="mdi:content-copy" class="w-5 h-5" />
                             <span id="copy-text">Copiar</span>
                         </button>
