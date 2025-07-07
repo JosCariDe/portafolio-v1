@@ -4,10 +4,10 @@ title: "Backend escalable y seguro en NestJS"
 description: "Desarrollo de una API RESTful utilizando NestJS para una plataforma de comercio electrónico."
 publishDate: 2024-01-20
 tags: ["Backend", "NestJS", "TypeScript", "API REST"]
-mainImage: "~/assets/images/nestjs-main.jpeg"
-gallery: 
-  - "~/assets/images/nestjs-gallery-1.jpg"
-  - "~/assets/images/nestjs-gallery-2.jpg"
+mainImage: "../../assets/images/nestjs-main.jpeg"
+#gallery: 
+#  - "~/assets/images/nestjs-gallery-1.jpg"
+#  - "~/assets/images/nestjs-gallery-2.jpg"
 repoUrl: "https://github.com/JosCariDe/pokedex-nest-learn"
 demoUrl: "https://github.com/JosCariDe/pokedex-nest-learn"
 ---
