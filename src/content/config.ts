@@ -8,9 +8,10 @@ const projectsCollection = defineCollection({
     description: z.string(),
     publishDate: z.date(),
     tags: z.array(z.string()),
-    mainImage: image().refine(img => img.width >= 1080, {
+    mainImage: image(),
+    /*mainImage: image().refine(img => img.width >= 200, {
       message: "La imagen principal debe tener al menos 1080px de ancho.",
-    }),
+    }).optional(), */
     gallery: z.array(image()).optional(),
     demoUrl: z.string().url().optional(),
     repoUrl: z.string().url().optional(),
