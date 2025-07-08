@@ -1,1 +1,35 @@
 @import "tailwindcss";
+
+.content-area {
+    /* Usamos @apply para poder usar utilidades de Tailwind en nuestro CSS */
+    @apply text-lg text-gray-700;
+}
+
+/* Estilo para los encabezados (Desafíos, Solución, etc.) */
+.content-area h3 {
+    @apply text-3xl font-bold text-gray-900 mb-4 mt-8;
+}
+
+/* Estilo para los párrafos */
+.content-area p {
+    @apply mb-4 leading-relaxed;
+}
+
+/* Estilo para los enlaces */
+.content-area a {
+    @apply text-purple-600 underline hover:text-purple-800;
+}
+
+/* Estilo para el texto en negrita */
+.content-area strong {
+    @apply font-semibold text-gray-800;
+}
+
+/* Estilo para listas (si las usas en el futuro) */
+.content-area ul {
+    @apply list-disc list-inside mb-4 pl-4;
+}
+
+.content-area ol {
+    @apply list-decimal list-inside mb-4 pl-4;
+}

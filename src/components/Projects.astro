@@ -1,27 +1,9 @@
 ---
 // src/components/Projects.astro
 import ProjectCard from './ProjectCard.astro';
+import { getCollection } from 'astro:content';
 
-const projects = [
-    {
-        title: 'Creacion de front en kotlin y Flutter',
-        description: 'Interfaces de usuario modernas y nativas para Android y multiplataforma.',
-        imageUrl: '/img/proyectoImg1.png',
-        link: '#'
-    },
-    {
-        title: 'Backend escalable y seguro en nest js',
-        description: 'APIs robustas y eficientes construidas con la arquitectura de NestJS.',
-        imageUrl: 'https://images.unsplash.com/photo-1522252234503-e356532cafd5?q=80&w=2070&auto=format&fit=crop',
-        link: '#'
-    },
-    {
-        title: 'Microservicios en Spring Boot',
-        description: 'Arquitectura de microservicios para aplicaciones empresariales complejas.',
-        imageUrl: 'https://images.unsplash.com/photo-1618477388954-7852f32655ec?q=80&w=1964&auto=format&fit=crop',
-        link: '#'
-    }
-];
+const projects = await getCollection('projects');
 ---
 <section id="proyectos" class="bg-gray-50 py-20 sm:py-22">
     <div class="max-w-6xl mx-auto px-6">
@@ -31,7 +13,13 @@ const projects = [
         </div>
         <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {projects.map(project => (
-                <ProjectCard {...project} />
+                <ProjectCard 
+                    title={project.data.title}
+                    description={project.data.description}
+                    imageUrl={project.data.mainImage}
+                    // El enlace ahora apunta a la página generada
+                    link={`/proyectos/${project.slug}/`} 
+                />
             ))}
         </div>
     </div>
