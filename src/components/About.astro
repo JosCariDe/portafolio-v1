@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import AboutV3Img from "../assets/images/AboutV3Img.png";
 ---
 <section id="sobre-mi" class="bg-gray-900 text-white py-20 lg:py-38 2xl:py-58">
     <div class="max-w-6xl mx-auto px-6">
@@ -8,9 +10,9 @@
                 <div class="w-80 h-80 bg-purple-500/20 rounded-2xl flex items-center justify-center">
                     <!-- Placeholder para la imagen -->
                     <div class="w-64 h-64 bg-gray-700 rounded-lg flex items-center justify-center">
-                        <img 
-                            src="/img/AboutV3Img.png"
-                            alt="Mi caricatura" 
+                        <Image 
+                            src={AboutV3Img}
+                            alt={"About Img animada"} 
                             class="w-64 h-65 object-cover rounded-lg shadow-md"
                         />
                     </div>
